@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PoC - Code Animation Recorder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Proof of Concept: Animation to MP4</h1>
+
+    <div id="animation-container">
+        <pre id="output"></pre>
+    </div>
+
+    <button id="record-btn">Record and Generate MP4</button>
+    <p id="status">Status: Ready</p>
+
+    <!-- Required libraries from CDN -->
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Application script -->
+    <script src="app.js"></script>
+</body>
+</html>
