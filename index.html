@@ -2,24 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PoC - Code Animation Recorder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Animator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
-    <h1>Proof of Concept: Animation to MP4</h1>
-
-    <div id="animation-container">
-        <pre id="output"></pre>
+    <div class="container">
+        <div class="top-bar">
+            <select id="language-selector">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="java">Java</option>
+                <option value="cpp">C++</option>
+                <option value="typescript">TypeScript</option>
+                <option value="php">PHP</option>
+                <option value="ruby">Ruby</option>
+                <option value="sql">SQL</option>
+                <option value="go">Go</option>
+                <option value="rust">Rust</option>
+            </select>
+            <div class="speed-control">
+                <label for="speed-slider">Speed (ms):</label>
+                <input type="range" id="speed-slider" min="1" max="200" value="40">
+                <span id="speed-value">40</span>
+            </div>
+            <button id="play-btn">Play</button>
+            <button id="pause-btn">Pause</button>
+            <button id="reset-btn">Reset</button>
+            <button id="record-btn">Record Video</button>
+            <button id="download-txt-btn">Download .txt</button>
+        </div>
+        <div class="main-content">
+            <div class="panel input-panel">
+                <div class="line-numbers-input"></div>
+                <textarea id="code-input" placeholder="Pega aquí tu código..."></textarea>
+            </div>
+            <div class="panel output-panel">
+                <div class="line-numbers-output"></div>
+                <pre><code id="code-output" class="language-javascript"></code><span class="cursor"></span></pre>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span id="status-text">Ready</span>
+            <span id="char-count">Chars: 0</span>
+            <span id="line-count">Lines: 0</span>
+        </div>
     </div>
-
-    <button id="record-btn">Record and Generate MP4</button>
-    <p id="status">Status: Ready</p>
-
-    <!-- Required libraries from CDN -->
-    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-    <!-- Application script -->
     <script src="app.js"></script>
 </body>
 </html>
